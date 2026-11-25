@@ -58,56 +58,146 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- Camada 0: Marca d'água em Xilogravura / Cordel Nordestino -->
+  <!-- Camada 0: Cenário de Xilogravura / Cordel Nordestino (Proporcionado p/ Mobile & Desktop) -->
   <div class="sertanejo-watermarks" aria-hidden="true">
-    <!-- Sol Espiral de Xilogravura -->
+    <!-- 1. Sol Espiral de Xilogravura (Topo Direito) -->
     <svg class="watermark watermark--sun" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="120,10 132,44 108,44" fill="currentColor" fill-opacity="0.35" />
-        <polygon points="175,25 166,59 145,46" fill="currentColor" fill-opacity="0.35" />
-        <polygon points="215,65 182,82 194,61" fill="currentColor" fill-opacity="0.35" />
-        <polygon points="230,120 196,132 196,108" fill="currentColor" fill-opacity="0.35" />
-        <polygon points="215,175 181,166 194,145" fill="currentColor" fill-opacity="0.35" />
-        <polygon points="175,215 158,182 179,194" fill="currentColor" fill-opacity="0.35" />
-        <polygon points="120,230 108,196 132,196" fill="currentColor" fill-opacity="0.35" />
-        <polygon points="65,215 74,181 95,194" fill="currentColor" fill-opacity="0.35" />
-        <polygon points="25,175 58,158 46,179" fill="currentColor" fill-opacity="0.35" />
-        <polygon points="10,120 44,108 44,132" fill="currentColor" fill-opacity="0.35" />
-        <polygon points="25,65 59,74 46,95" fill="currentColor" fill-opacity="0.35" />
-        <polygon points="65,25 82,58 61,46" fill="currentColor" fill-opacity="0.35" />
-        <circle cx="120" cy="120" r="62" stroke-width="4" />
+      <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Raios triangulares entalhados estilo xilogravura -->
+        <polygon points="120,8 133,44 107,44" fill="currentColor" fill-opacity="0.55" stroke-width="2.5" />
+        <polygon points="176,23 166,59 144,46" fill="currentColor" fill-opacity="0.55" stroke-width="2.5" />
+        <polygon points="217,64 181,82 194,60" fill="currentColor" fill-opacity="0.55" stroke-width="2.5" />
+        <polygon points="232,120 196,133 196,107" fill="currentColor" fill-opacity="0.55" stroke-width="2.5" />
+        <polygon points="217,176 181,166 194,144" fill="currentColor" fill-opacity="0.55" stroke-width="2.5" />
+        <polygon points="176,217 158,181 180,194" fill="currentColor" fill-opacity="0.55" stroke-width="2.5" />
+        <polygon points="120,232 107,196 133,196" fill="currentColor" fill-opacity="0.55" stroke-width="2.5" />
+        <polygon points="64,217 74,181 96,194" fill="currentColor" fill-opacity="0.55" stroke-width="2.5" />
+        <polygon points="23,176 59,158 46,180" fill="currentColor" fill-opacity="0.55" stroke-width="2.5" />
+        <polygon points="8,120 44,107 44,133" fill="currentColor" fill-opacity="0.55" stroke-width="2.5" />
+        <polygon points="23,64 59,74 46,96" fill="currentColor" fill-opacity="0.55" stroke-width="2.5" />
+        <polygon points="64,23 82,59 60,46" fill="currentColor" fill-opacity="0.55" stroke-width="2.5" />
+        <!-- Disco e espiral rústica central -->
+        <circle cx="120" cy="120" r="62" stroke-width="4.5" fill="currentColor" fill-opacity="0.12" />
+        <circle cx="120" cy="120" r="53" stroke-width="2" stroke-dasharray="6 5" />
         <path
-          d="M120 120c4-6 12-4 14 3 3 10-7 19-17 18-15-1-24-16-22-30 3-20 23-32 42-28 25 5 39 31 33 55-7 28-36 45-64 38"
-          stroke-width="3.6"
+          d="M120 120c5-7 14-4 16 4 3 11-8 21-19 20-17-1-27-17-24-33 4-22 25-35 46-30 27 6 42 33 35 59-7 30-39 47-69 40"
+          stroke-width="4.2"
         />
       </g>
     </svg>
 
-    <!-- Cacto Mandacaru Estilizado -->
-    <svg class="watermark watermark--cactus-left" viewBox="0 0 180 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M90 250V44c0-14 10-24 22-24s22 10 22 24v186M90 156H58c-16 0-28-12-28-28V92c0-9 7-16 16-16s16 7 16 16v26c0 5 4 9 9 9h19M134 134h18c8 0 14-6 14-14V78c0-9 7-16 16-16"
-        stroke="currentColor"
-        stroke-width="4"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <line x1="82" y1="36" x2="75" y2="29" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
-      <line x1="138" y1="52" x2="146" y2="46" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
-      <line x1="26" y1="104" x2="18" y2="100" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
-      <line x1="106" y1="78" x2="106" y2="92" stroke="currentColor" stroke-width="2.5" stroke-dasharray="4 8" />
-      <line x1="118" y1="64" x2="118" y2="210" stroke="currentColor" stroke-width="2.5" stroke-dasharray="5 12" />
+    <!-- 2. Asa Branca / Pássaros e Estrelas de Cordel (Topo Esquerdo) -->
+    <svg class="watermark watermark--birds" viewBox="0 0 220 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Pássaro principal em xilogravura (inspirado na ref de cordel) -->
+        <path
+          d="M22 68L40 62C47 54 60 54 68 62L92 36C106 32 115 38 112 48L88 66L122 62L126 72L88 76L104 98C96 106 82 102 72 86L56 84C44 82 36 75 36 70L22 68Z"
+          fill="currentColor"
+          fill-opacity="0.32"
+          stroke-width="3.2"
+        />
+        <!-- Detalhes de penas entalhadas -->
+        <path d="M84 54L102 44M88 60L106 52M76 82L92 94" stroke-width="2.2" />
+        <circle cx="48" cy="65" r="2.5" fill="currentColor" />
+        <!-- Segundo pássaro menor ao fundo -->
+        <path
+          d="M138 36C148 26 158 28 164 38C172 28 184 28 192 36C182 36 172 40 164 48C156 40 148 37 138 36Z"
+          stroke-width="3"
+          fill="currentColor"
+          fill-opacity="0.25"
+        />
+        <!-- Estrela nordestina de 8 pontas -->
+        <path
+          d="M174 82L178 94L190 90L182 100L194 104L182 108L190 118L178 114L174 126L170 114L158 118L166 108L154 104L166 100L158 90L170 94Z"
+          fill="currentColor"
+          fill-opacity="0.38"
+          stroke-width="1.8"
+        />
+        <!-- Nuvem rústica tracejada -->
+        <path d="M18 112H74M32 120H62" stroke-width="2.4" stroke-dasharray="6 6" />
+      </g>
     </svg>
 
-    <!-- Dunas Suaves do Sertão -->
-    <svg class="watermark watermark--dunes" viewBox="0 0 1440 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 3. Dunas / Chão Rachado do Sertão (Base contínua 100% largura) -->
+    <svg class="watermark watermark--ground" viewBox="0 0 800 70" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
-        d="M0 138C240 74 510 168 780 112C1040 58 1260 92 1440 140V190H0V138Z"
-        stroke="currentColor"
-        stroke-width="2"
+        d="M0 32C160 12 310 46 470 26C620 8 720 22 800 34V70H0V32Z"
         fill="currentColor"
-        fill-opacity="0.16"
+        fill-opacity="0.22"
+        stroke="currentColor"
+        stroke-width="2.5"
       />
+      <path d="M45 52H150M330 48H455M610 54H745" stroke="currentColor" stroke-width="2" stroke-dasharray="9 9" stroke-linecap="round" />
+    </svg>
+
+    <!-- 4. Cena Esquerda de Cordel: Cacto Mandacaru + Cerca de Madeira (100% visível sem cortes) -->
+    <svg class="watermark watermark--left-scene" viewBox="0 0 240 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Cacto Mandacaru Entalhado -->
+        <path
+          d="M66 176V46C66 33 75 24 86 24C97 24 106 33 106 46V176Z"
+          fill="currentColor"
+          fill-opacity="0.34"
+          stroke-width="3.4"
+        />
+        <path
+          d="M66 122H42C28 122 18 112 18 98V68C18 59 25 52 34 52C43 52 50 59 50 68V92C50 96 53 99 57 99H66"
+          fill="currentColor"
+          fill-opacity="0.30"
+          stroke-width="3.4"
+        />
+        <path
+          d="M106 106H126C138 106 148 96 148 84V58C148 49 141 42 132 42C123 42 116 49 116 58V78C116 82 113 85 109 85H106"
+          fill="currentColor"
+          fill-opacity="0.30"
+          stroke-width="3.4"
+        />
+        <!-- Costelas pontilhadas e espinhos de xilogravura -->
+        <line x1="86" y1="36" x2="86" y2="168" stroke-width="2.4" stroke-dasharray="4 8" />
+        <line x1="34" y1="64" x2="34" y2="104" stroke-width="2.2" stroke-dasharray="4 7" />
+        <line x1="132" y1="54" x2="132" y2="90" stroke-width="2.2" stroke-dasharray="4 7" />
+        <path d="M61 38L54 32M111 36L118 30M14 78L7 74M152 68L159 64M61 76L54 72M86 20V13" stroke-width="2.5" />
+
+        <!-- Cerca Sertaneja de Madeira Torta -->
+        <g stroke-width="2.8">
+          <path d="M160 176L164 136M192 178L189 138M224 180L227 140" />
+          <path d="M150 148L236 152M152 163L234 166" stroke-width="2.2" />
+        </g>
+      </g>
+    </svg>
+
+    <!-- 5. Cena Direita de Cordel: Capelinha do Sertão + Xique-Xique (100% visível sem cortes) -->
+    <svg class="watermark watermark--right-scene" viewBox="0 0 230 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Torres laterais da Capelinha -->
+        <rect x="26" y="80" width="32" height="96" fill="currentColor" fill-opacity="0.22" stroke-width="3.2" />
+        <polygon points="22,80 42,46 62,80" fill="currentColor" fill-opacity="0.44" stroke-width="3" />
+        <rect x="122" y="80" width="32" height="96" fill="currentColor" fill-opacity="0.22" stroke-width="3.2" />
+        <polygon points="118,80 138,46 158,80" fill="currentColor" fill-opacity="0.44" stroke-width="3" />
+        <!-- Corpo central e telhado -->
+        <polygon points="58,106 90,80 122,106 122,176 58,176" fill="currentColor" fill-opacity="0.26" stroke-width="3.2" />
+        <!-- Cruz no topo -->
+        <path d="M90 80V48M79 59H101" stroke-width="3.8" />
+        <!-- Sinos, Rosácea e Porta -->
+        <path d="M35 112V96C35 91 49 91 49 96V112Z" fill="currentColor" fill-opacity="0.55" stroke-width="2.2" />
+        <path d="M131 112V96C131 91 145 91 145 96V112Z" fill="currentColor" fill-opacity="0.55" stroke-width="2.2" />
+        <circle cx="90" cy="104" r="7" stroke-width="2.4" />
+        <path d="M74 176V138C74 126 106 126 106 138V176Z" fill="currentColor" fill-opacity="0.52" stroke-width="2.6" />
+        <line x1="90" y1="129" x2="90" y2="176" stroke-width="2.2" />
+        <!-- Tijolinhos rústicos -->
+        <path d="M32 134H48M36 152H52M128 136H144M132 156H148" stroke-width="2" />
+
+        <!-- Cacto Xique-Xique à direita da capela -->
+        <path
+          d="M184 178V98C184 91 189 86 195 86C201 86 206 91 206 98V178Z"
+          fill="currentColor"
+          fill-opacity="0.32"
+          stroke-width="3"
+        />
+        <path d="M184 140H172C165 140 160 135 160 128V112" stroke-width="3" />
+        <path d="M206 128H216C221 128 224 124 224 118V104" stroke-width="2.8" />
+        <line x1="195" y1="96" x2="195" y2="170" stroke-width="2" stroke-dasharray="3 6" />
+      </g>
     </svg>
   </div>
 
@@ -117,14 +207,22 @@
   <!-- Container Principal Mobile-First -->
   <div class="page-shell">
     <div class="card-stage">
-      <!-- Camada 1: Orbs 3D Quentes (Sol do Sertão + Brasa) p/ Refração no Vidro -->
+      <!-- Camada 1: Luz Ambiente Quente Suave p/ Refração no Vidro (sem roubar cena do cordel) -->
       <div class="ambient-orb ambient-orb--ember" aria-hidden="true"></div>
       <div class="ambient-orb ambient-orb--core-glow" aria-hidden="true"></div>
       <div class="ambient-orb ambient-orb--solar" aria-hidden="true"></div>
-      <div class="ambient-ring" aria-hidden="true"></div>
 
       <!-- Camada 2: Card Principal em Warm Glassmorphism -->
       <main class="glass-card" aria-label="Links oficiais Barretos Burguer Artesanal">
+        <!-- Gravura sutil de cordel nos cantos internos do vidro -->
+        <div class="card-cordel-ornaments" aria-hidden="true">
+          <svg class="card-ornament card-ornament--tl" viewBox="0 0 48 48" fill="none">
+            <path d="M24 4L27 17L40 12L31 22L44 25L31 28L40 38L27 33L24 46L21 33L8 38L17 28L4 25L17 22L8 12L21 17Z" fill="currentColor" fill-opacity="0.45"/>
+          </svg>
+          <svg class="card-ornament card-ornament--tr" viewBox="0 0 48 48" fill="none">
+            <path d="M24 4L27 17L40 12L31 22L44 25L31 28L40 38L27 33L24 46L21 33L8 38L17 28L4 25L17 22L8 12L21 17Z" fill="currentColor" fill-opacity="0.45"/>
+          </svg>
+        </div>
         <!-- Cabeçalho da Marca -->
         <header class="brand-header">
           <a
