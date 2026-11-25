@@ -66,47 +66,47 @@ body {
   user-select: none;
 }
 
-/* No Mobile (390px), posicionamos o Sol e os Pássaros na faixa superior visível acima do card */
+/* No Mobile, reservamos a faixa superior (0..94px) livre acima do card p/ Sol + Pássaros */
 .watermark--sun {
-  width: 92px;
-  height: 92px;
+  width: 88px;
+  height: 88px;
   top: 6px;
-  right: 10px;
-  opacity: 0.34;
+  right: 12px;
+  opacity: 0.36;
   animation: slowRotate 110s linear infinite;
 }
 
 .watermark--birds {
-  width: 126px;
-  height: auto;
-  top: 10px;
+  width: 128px;
+  height: 82px;
+  top: 8px;
   left: 10px;
-  opacity: 0.32;
+  opacity: 0.34;
 }
 
-/* Base contínua de dunas e cenas laterais inferiores sem cortes em nenhuma tela */
+/* Base contínua de dunas e cenas laterais inferiores sem cortes nem sobreposição */
 .watermark--ground {
   width: 100%;
   height: 34px;
   left: 0;
   bottom: 0;
-  opacity: 0.28;
+  opacity: 0.30;
 }
 
 .watermark--left-scene {
   width: 124px;
-  height: auto;
+  height: 104px;
   left: 6px;
   bottom: 8px;
-  opacity: 0.32;
+  opacity: 0.34;
 }
 
 .watermark--right-scene {
   width: 126px;
-  height: auto;
+  height: 110px;
   right: 6px;
   bottom: 8px;
-  opacity: 0.32;
+  opacity: 0.34;
 }
 
 /* ==========================================================================
@@ -123,8 +123,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 88px 16px 124px;
+  justify-content: flex-start;
+  padding: 96px 16px 132px;
 }
 
 .card-stage {
@@ -724,6 +724,7 @@ body {
   }
 
   .page-shell {
+    justify-content: center;
     padding: 32px 24px;
   }
 
@@ -744,6 +745,7 @@ body {
 
   .watermark--birds {
     width: 220px;
+    height: 140px;
     top: 28px;
     left: max(28px, calc(50% - 510px));
   }
@@ -754,12 +756,14 @@ body {
 
   .watermark--left-scene {
     width: 270px;
+    height: 225px;
     left: max(24px, calc(50% - 540px));
     bottom: 22px;
   }
 
   .watermark--right-scene {
     width: 275px;
+    height: 240px;
     right: max(24px, calc(50% - 540px));
     bottom: 22px;
   }
@@ -781,10 +785,11 @@ body {
   }
 }
 
-/* Ajuste fino para telas muito baixas / WebView compacto */
+/* Ajuste fino para telas com barra de endereço alta / WebView compacto (mantendo SEMPRE
+   as faixas superior e inferior livres para exibir os desenhos de cordel sem sobreposição!) */
 @media (max-height: 740px) and (max-width: 480px) {
   .page-shell {
-    padding: 10px 14px 12px;
+    padding: 92px 14px 128px;
   }
 
   .glass-card {
