@@ -9,7 +9,7 @@
 
 window.LINKS_CONFIG = {
   // 1. Botão Principal (Destaque Âmbar): Cardápio Digital / Delivery Direto
-  pecaAquiUrl: "https://pedir.site/barretosburguer",
+  pecaAquiUrl: "https://barretosburguer.com.br/",
 
   // 2. Botão iFood: Link oficial da loja no iFood (Salvador - BA)
   ifoodUrl: "https://www.ifood.com.br/delivery/salvador-ba/barretos-burguer",
