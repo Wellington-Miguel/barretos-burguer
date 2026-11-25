@@ -47,9 +47,11 @@ body {
   background-size: 180px 180px;
 }
 
-/* Cenário de Xilogravura / Cordel Nordestino no Plano de Fundo */
+/* Cenário de Xilogravura / Cordel Nordestino no Plano de Fundo:
+   No mobile acompanha o topo e rodapé reais da página sem ficar escondido atrás do card;
+   no desktop permanece fixo nas amplas laterais da tela. */
 .sertanejo-watermarks {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
@@ -58,29 +60,28 @@ body {
 
 .watermark {
   position: absolute;
-  color: #ECAFA0;
   color: #EEBE88;
-  opacity: 0.28;
+  opacity: 0.30;
   filter: drop-shadow(0 2px 10px rgba(229, 124, 6, 0.16));
   user-select: none;
 }
 
 /* No Mobile (390px), posicionamos o Sol e os Pássaros na faixa superior visível acima do card */
 .watermark--sun {
-  width: 108px;
-  height: 108px;
-  top: 4px;
-  right: 8px;
-  opacity: 0.32;
+  width: 92px;
+  height: 92px;
+  top: 6px;
+  right: 10px;
+  opacity: 0.34;
   animation: slowRotate 110s linear infinite;
 }
 
 .watermark--birds {
-  width: 138px;
+  width: 126px;
   height: auto;
-  top: 8px;
-  left: 8px;
-  opacity: 0.30;
+  top: 10px;
+  left: 10px;
+  opacity: 0.32;
 }
 
 /* Base contínua de dunas e cenas laterais inferiores sem cortes em nenhuma tela */
@@ -123,7 +124,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 28px 16px 46px;
+  padding: 88px 16px 124px;
 }
 
 .card-stage {
@@ -361,8 +362,8 @@ body {
 }
 
 .brand-logo {
-  width: 192px;
-  max-width: 62vw;
+  width: 178px;
+  max-width: 60vw;
   height: auto;
   display: block;
   filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.52));
@@ -401,7 +402,7 @@ body {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  gap: 9px;
   position: relative;
   z-index: 1;
 }
@@ -411,10 +412,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
+  gap: 12px;
   width: 100%;
-  min-height: 60px;
-  padding: 10px 16px 10px 18px;
+  min-height: 56px;
+  padding: 9px 15px 9px 17px;
   border-radius: var(--btn-radius);
   text-decoration: none;
   color: var(--text-cream);
@@ -478,15 +479,16 @@ body {
   color: var(--text-cream);
 }
 
-/* Ícone iFood levemente mais largo p/ leitura perfeita do logotipo */
-.cta-button--ifood .cta-button__icon {
-  width: 28px;
-  height: 28px;
+/* Ícone Ifood e 99 Food levemente mais largos p/ leitura perfeita das marcas */
+.cta-button--ifood .cta-button__icon,
+.cta-button--99food .cta-button__icon {
+  width: 27px;
+  height: 27px;
 }
 
 /* --- Variação 1: Botão Protagonista (Peça Aqui!) --- */
 .cta-button--primary {
-  min-height: 64px;
+  min-height: 60px;
   background: var(--btn-primary-bg);
   border-color: rgba(255, 224, 180, 0.42);
   box-shadow: var(--btn-primary-shadow);
@@ -717,16 +719,20 @@ body {
    ========================================================================== */
 
 @media (min-width: 640px) {
+  .sertanejo-watermarks {
+    position: fixed;
+  }
+
   .page-shell {
     padding: 32px 24px;
   }
 
   .glass-card {
-    padding: 30px 26px 24px;
+    padding: 28px 26px 24px;
   }
 
   .brand-logo {
-    width: 210px;
+    width: 200px;
   }
 
   .watermark--sun {

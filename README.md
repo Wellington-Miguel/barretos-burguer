@@ -20,16 +20,23 @@ Abra o arquivo [`config.js`](./config.js) na raiz do projeto e atualize as URLs 
 ```js
 window.LINKS_CONFIG = {
   // 1. Botão Principal (Cardápio Digital / Delivery Direto)
-  pecaAquiUrl: "https://SEU-CARDAPIO-DIGITAL.com.br",
+  pecaAquiUrl: "https://barretosburguer.com.br/",
 
-  // 2. Loja Oficial no iFood
-  ifoodUrl: "https://www.ifood.com.br/delivery/salvador-ba/SUA-LOJA",
+  // 2. Loja Oficial no Ifood
+  ifoodUrl: "https://www.ifood.com.br/delivery/salvador-ba/barretos-burguer--pratos----boca-do-rio-boca-do-rio/99e044ec-d32e-4f8f-a7ea-ef8448960ed9?utm_medium=share",
 
-  // 3. Atendimento no WhatsApp (substitua pelo número real com DDD 71)
-  whatsappUrl: "https://wa.me/5571999999999?text=Ol%C3%A1%2C%20vim%20pelo%20Instagram!",
+  // 3. Loja Oficial na 99 Food
+  noveNoveFoodUrl: "https://oia.99app.com/dlp9/cTQRpX",
 
-  // 4. Instagram Oficial
+  // 4. WhatsApp Vendas & Pedidos (+55 71 9272-5604)
+  whatsappPedidosUrl: "https://wa.me/557192725604?text=...",
+
+  // 5. WhatsApp Suporte dos Pedidos (+55 71 9230-4657)
+  whatsappSuporteUrl: "https://wa.me/557192304657?text=...",
+
+  // 6. Instagram Oficial e Google Maps
   instagramUrl: "https://www.instagram.com/barretosburguerssa/",
+  mapsUrl: "https://share.google/URVBEgplSJEeGRKWm",
   // ...
 };
 ```

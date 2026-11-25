@@ -69,7 +69,9 @@
     const linkBindings = {
       pecaAqui: { url: config.pecaAquiUrl, forwardTracking: true, applyDefaults: true },
       ifood: { url: config.ifoodUrl, forwardTracking: true, applyDefaults: true },
-      whatsapp: { url: config.whatsappUrl, forwardTracking: false, applyDefaults: false },
+      noveNoveFood: { url: config.noveNoveFoodUrl, forwardTracking: false, applyDefaults: false },
+      whatsappPedidos: { url: config.whatsappPedidosUrl, forwardTracking: false, applyDefaults: false },
+      whatsappSuporte: { url: config.whatsappSuporteUrl, forwardTracking: false, applyDefaults: false },
       instagram: { url: config.instagramUrl, forwardTracking: false, applyDefaults: false },
       maps: { url: config.mapsUrl, forwardTracking: false, applyDefaults: false }
     };
