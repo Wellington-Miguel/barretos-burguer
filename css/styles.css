@@ -1,0 +1,836 @@
+/* ==========================================================================
+   BARRETOS BURGUER ARTESANAL — ESTILOS PRINCIPAIS & WARM GLASSMORPHISM
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background-color: var(--bg-obsidian-roast);
+  color-scheme: dark;
+  overflow-x: clip;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  color: var(--text-cream);
+  background-color: var(--bg-obsidian-roast);
+  background-image:
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(76, 28, 8, 0.72) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 55% at 50% 100%, rgba(110, 38, 10, 0.45) 0%, transparent 72%),
+    linear-gradient(180deg, #160702 0%, #1E0A03 50%, #110502 100%);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* Camada de Granulação Orgânica (Papel Kraft / Areia do Sertão + Frosted Acrylic) */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.038;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* Marca d'água de Xilogravura / Cordel no Plano de Fundo */
+.sertanejo-watermarks {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.watermark {
+  position: absolute;
+  color: #F6E4CC;
+  opacity: 0.048;
+  user-select: none;
+}
+
+.watermark--sun {
+  width: clamp(220px, 34vw, 380px);
+  height: clamp(220px, 34vw, 380px);
+  top: -48px;
+  right: max(-60px, calc(50% - 540px));
+  animation: slowRotate 90s linear infinite;
+}
+
+.watermark--cactus-left {
+  width: clamp(150px, 24vw, 250px);
+  bottom: -14px;
+  left: max(-28px, calc(50% - 520px));
+  opacity: 0.045;
+}
+
+.watermark--dunes {
+  width: 100%;
+  max-width: 1440px;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  opacity: 0.04;
+}
+
+/* ==========================================================================
+   LAYOUT WRAPPER & STAGE DOS ORBS 3D LUMINOSOS
+   ========================================================================== */
+
+.page-shell {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  overflow-x: clip;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 16px 18px;
+}
+
+.card-stage {
+  position: relative;
+  width: 100%;
+  max-width: var(--card-max-width);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Esferas 3D Luminosas (Ambient Orbs) posicionadas atrás do vidro fosco */
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+/* Orb Principal: Sol do Sertão (Esfera 3D Âmbar/Terracota na base-direita do card) */
+.ambient-orb--solar {
+  width: 236px;
+  height: 236px;
+  bottom: 22px;
+  right: -36px;
+  background: radial-gradient(
+    circle at 32% 28%,
+    #FFE08A 0%,
+    #FF9F1C 22%,
+    #E57C06 52%,
+    #9C2D08 82%,
+    #3D0E02 100%
+  );
+  box-shadow:
+    0 0 65px rgba(229, 124, 6, 0.48),
+    inset -14px -18px 32px rgba(32, 6, 0, 0.65),
+    inset 6px 8px 18px rgba(255, 232, 185, 0.42);
+  animation: orbFloatPrimary 9s ease-in-out infinite alternate;
+}
+
+/* Orb Secundário: Esfera Dourada/Terracota no topo-esquerdo do card */
+.ambient-orb--ember {
+  width: 158px;
+  height: 158px;
+  top: -26px;
+  left: -34px;
+  background: radial-gradient(
+    circle at 64% 34%,
+    #FFD166 0%,
+    #EB8208 34%,
+    #B64310 72%,
+    #431204 100%
+  );
+  box-shadow:
+    0 0 50px rgba(235, 130, 8, 0.36),
+    inset -10px -12px 24px rgba(28, 6, 0, 0.6);
+  animation: orbFloatSecondary 11s ease-in-out infinite alternate;
+}
+
+/* Brilho difuso central atrás dos botões de conversão */
+.ambient-orb--core-glow {
+  width: 250px;
+  height: 200px;
+  top: 42%;
+  left: 12%;
+  background: radial-gradient(
+    circle,
+    rgba(229, 124, 6, 0.30) 0%,
+    rgba(206, 104, 40, 0.14) 55%,
+    transparent 78%
+  );
+  filter: blur(34px);
+}
+
+/* Anel dourado decorativo sutil inspirado em glass_ref_02 */
+.ambient-ring {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  top: 18px;
+  right: -18px;
+  border-radius: 50%;
+  border: 6px solid rgba(255, 183, 64, 0.55);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.45),
+    inset 0 1px 3px rgba(255, 245, 214, 0.65);
+  pointer-events: none;
+  z-index: 0;
+  transform: rotate(-18deg);
+}
+
+/* ==========================================================================
+   MAIN GLASS CARD (Vidro Fosco Quente + Borda Especular de 1px)
+   ========================================================================== */
+
+.glass-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  border-radius: var(--card-radius);
+  padding: 22px 18px 20px;
+  background: var(--glass-card-bg);
+  -webkit-backdrop-filter: var(--glass-card-blur);
+  backdrop-filter: var(--glass-card-blur);
+  box-shadow: var(--glass-card-shadow);
+  overflow: hidden;
+  animation: cardEntrance 0.65s var(--ease-out-expo) both;
+}
+
+/* Borda especular diagonal de 1px (Rim Light realista de vidro lapidado) */
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 244, 228, 0.44) 0%,
+    rgba(255, 214, 165, 0.16) 35%,
+    rgba(255, 236, 214, 0.06) 65%,
+    rgba(255, 168, 52, 0.34) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Reflexo suave de luz ambiente no topo do card */
+.glass-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -25%;
+  width: 90%;
+  height: 75%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 236, 208, 0.08) 0%,
+    transparent 70%
+  );
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   HEADER DA MARCA (Badge + Logo Oficial + Chamada)
+   ========================================================================== */
+
+.brand-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  background: rgba(20, 7, 2, 0.46);
+  border: 1px solid rgba(255, 232, 204, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  color: var(--text-sand);
+  text-decoration: none;
+  margin-bottom: 12px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s var(--ease-out-expo),
+    box-shadow 0.22s ease;
+}
+
+.status-badge:hover {
+  background: rgba(229, 124, 6, 0.16);
+  border-color: rgba(255, 185, 95, 0.45);
+  color: var(--text-cream);
+  transform: translateY(-1px);
+  box-shadow:
+    0 6px 16px -4px rgba(229, 124, 6, 0.25),
+    inset 0 1px 0 rgba(255, 245, 232, 0.22);
+}
+
+.status-badge:active {
+  transform: scale(0.98);
+}
+
+.status-badge:focus-visible {
+  outline: 2px solid var(--amber-glow);
+  outline-offset: 2px;
+}
+
+.status-badge__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34D399;
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.22);
+  animation: pulseDot 2.2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.status-badge__pin {
+  width: 13px;
+  height: 13px;
+  color: var(--amber-glow);
+  flex-shrink: 0;
+  display: block;
+}
+
+.brand-logo-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.brand-logo {
+  width: 192px;
+  max-width: 62vw;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.52));
+  transition: transform 0.35s var(--ease-out-expo);
+}
+
+.brand-logo:hover {
+  transform: scale(1.025);
+}
+
+.brand-headline {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.26rem, 5.4vw, 1.48rem);
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-cream);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+  margin-bottom: 0;
+}
+
+.brand-subtitle {
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.38;
+  color: var(--text-sand);
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   BLOCO DE CTAs PRINCIPAIS (Texto à Esquerda + Ícone Vetorial à Direita)
+   ========================================================================== */
+
+.cta-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  min-height: 60px;
+  padding: 10px 16px 10px 18px;
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  color: var(--text-cream);
+  border: 1px solid var(--btn-border);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  transition:
+    transform 0.24s var(--ease-out-expo),
+    border-color 0.24s ease,
+    box-shadow 0.24s ease,
+    background 0.24s ease;
+}
+
+.cta-button__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  min-width: 0;
+  flex: 1;
+}
+
+.cta-button__label {
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.005em;
+  color: var(--text-cream);
+}
+
+.cta-button__sublabel {
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-top: 2px;
+  color: rgba(250, 246, 240, 0.72);
+}
+
+.cta-button__icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(255, 246, 234, 0.08);
+  border: 1px solid rgba(255, 242, 224, 0.14);
+  transition:
+    transform 0.26s var(--ease-spring),
+    background-color 0.24s ease,
+    border-color 0.24s ease,
+    color 0.24s ease;
+}
+
+.cta-button__icon {
+  width: 23px;
+  height: 23px;
+  display: block;
+  color: var(--text-cream);
+}
+
+/* Ícone iFood levemente mais largo p/ leitura perfeita do logotipo */
+.cta-button--ifood .cta-button__icon {
+  width: 28px;
+  height: 28px;
+}
+
+/* --- Variação 1: Botão Protagonista (Peça Aqui!) --- */
+.cta-button--primary {
+  min-height: 64px;
+  background: var(--btn-primary-bg);
+  border-color: rgba(255, 224, 180, 0.42);
+  box-shadow: var(--btn-primary-shadow);
+}
+
+.cta-button--primary .cta-button__label {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #FFFDF9;
+  text-shadow: 0 1px 2px rgba(72, 22, 0, 0.35);
+}
+
+.cta-button--primary .cta-button__sublabel {
+  color: rgba(255, 248, 236, 0.90);
+  font-weight: 500;
+}
+
+.cta-button--primary .cta-button__icon-box {
+  background: rgba(34, 10, 2, 0.24);
+  border-color: rgba(255, 245, 228, 0.28);
+}
+
+/* Reflexo Diagonal Suave (Shimmer) no Botão Principal */
+.cta-button--primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 250, 240, 0.26) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  animation: ctaShimmer 5.2s ease-in-out infinite;
+}
+
+.cta-button--primary:hover {
+  background: var(--btn-primary-bg-hover);
+  transform: translateY(-2px);
+  border-color: rgba(255, 238, 210, 0.65);
+  box-shadow:
+    0 18px 36px -8px rgba(229, 124, 6, 0.60),
+    inset 0 1px 0 rgba(255, 252, 245, 0.55);
+}
+
+.cta-button--primary:hover .cta-button__icon-box {
+  transform: scale(1.06) translateX(1px);
+  background: rgba(34, 10, 2, 0.34);
+}
+
+/* --- Variação 2 & 3: Botões Secundários em Vidro Fumê Quente --- */
+.cta-button--secondary {
+  background: var(--btn-secondary-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 8px 20px -8px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 245, 232, 0.12);
+}
+
+.cta-button--secondary:hover {
+  background: var(--btn-secondary-bg-hover);
+  border-color: var(--btn-border-hover);
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 28px -10px rgba(229, 124, 6, 0.28),
+    inset 0 1px 0 rgba(255, 240, 218, 0.24);
+}
+
+.cta-button--secondary:hover .cta-button__icon-box {
+  transform: scale(1.06);
+  background: rgba(229, 124, 6, 0.22);
+  border-color: rgba(255, 196, 118, 0.42);
+  color: #FFEAD0;
+}
+
+/* Feedback tátil imediato no toque Mobile */
+.cta-button:active {
+  transform: scale(0.985) translateY(0);
+  transition-duration: 0.08s;
+}
+
+.cta-button:focus-visible {
+  outline: 2px solid var(--amber-glow);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   VITRINE COMPACTA "DIRETO DA CHAPA" (Fotos Reais @barretosburguerssa)
+   ========================================================================== */
+
+.chapa-showcase {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 236, 214, 0.11);
+  position: relative;
+  z-index: 1;
+}
+
+.chapa-showcase__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 9px;
+}
+
+.chapa-showcase__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.69rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-sand);
+  opacity: 0.86;
+}
+
+.chapa-showcase__spark {
+  width: 13px;
+  height: 13px;
+  color: var(--amber-glow);
+}
+
+.chapa-showcase__ig-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--amber-glow);
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.chapa-showcase__ig-link:hover {
+  color: var(--amber-gold);
+}
+
+.chapa-showcase__ig-icon {
+  width: 13px;
+  height: 13px;
+}
+
+.chapa-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.chapa-thumb {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--thumb-radius);
+  overflow: hidden;
+  display: block;
+  border: 1px solid rgba(255, 236, 214, 0.18);
+  background: rgba(20, 7, 2, 0.6);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  text-decoration: none;
+}
+
+.chapa-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.42s var(--ease-out-expo), filter 0.3s ease;
+}
+
+.chapa-thumb__tag {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 14px 6px 5px;
+  background: linear-gradient(180deg, transparent 0%, rgba(14, 4, 1, 0.84) 100%);
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: rgba(250, 246, 240, 0.92);
+  text-align: center;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chapa-thumb:hover img {
+  transform: scale(1.08);
+  filter: saturate(1.1) contrast(1.04);
+}
+
+/* ==========================================================================
+   RODAPÉ LIMPO (Sem marca d'água de terceiros)
+   ========================================================================== */
+
+.page-footer {
+  margin-top: 14px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.page-footer__text {
+  font-size: 0.71rem;
+  font-weight: 400;
+  color: var(--text-subtle);
+  letter-spacing: 0.02em;
+}
+
+.page-footer__link {
+  color: rgba(250, 240, 226, 0.72);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.page-footer__link:hover {
+  color: var(--amber-glow);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (Telas Compactas, Mobile Padrão 390x844 e Desktop 1440x900)
+   ========================================================================== */
+
+@media (min-width: 640px) {
+  .page-shell {
+    padding: 32px 24px;
+  }
+
+  .glass-card {
+    padding: 30px 26px 24px;
+  }
+
+  .brand-logo {
+    width: 210px;
+  }
+
+  .ambient-orb--solar {
+    width: 268px;
+    height: 268px;
+    bottom: 18px;
+    right: -58px;
+  }
+
+  .ambient-orb--ember {
+    width: 180px;
+    height: 180px;
+    top: -34px;
+    left: -52px;
+  }
+
+  .ambient-ring {
+    right: -26px;
+  }
+}
+
+/* Ajuste fino para telas muito baixas / WebView compacto */
+@media (max-height: 740px) and (max-width: 480px) {
+  .page-shell {
+    padding: 10px 14px 12px;
+  }
+
+  .glass-card {
+    padding: 16px 15px 15px;
+  }
+
+  .status-badge {
+    margin-bottom: 8px;
+    padding: 4px 10px;
+  }
+
+  .brand-logo {
+    width: 164px;
+  }
+
+  .brand-header {
+    margin-bottom: 12px;
+  }
+
+  .cta-list {
+    gap: 9px;
+  }
+
+  .cta-button {
+    min-height: 54px;
+  }
+
+  .cta-button--primary {
+    min-height: 58px;
+  }
+
+  .chapa-showcase {
+    margin-top: 12px;
+    padding-top: 10px;
+  }
+}
+
+/* ==========================================================================
+   KEYFRAMES & ACESSIBILIDADE (prefers-reduced-motion)
+   ========================================================================== */
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes orbFloatPrimary {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(-12px, -14px, 0) scale(1.04);
+  }
+}
+
+@keyframes orbFloatSecondary {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(10px, 12px, 0) scale(1.05);
+  }
+}
+
+@keyframes ctaShimmer {
+  0%, 68% {
+    left: -130%;
+  }
+  100% {
+    left: 160%;
+  }
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(0.88);
+  }
+}
+
+@keyframes slowRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

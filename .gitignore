@@ -1,0 +1,21 @@
+# Dependências e builds locais
+node_modules/
+dist/
+.vercel/
+
+# Sistema Operacional e Editores
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Logs e variáveis sensíveis
+*.log
+npm-debug.log*
+.env
+.env.*
+!.env.example
