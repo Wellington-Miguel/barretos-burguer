@@ -407,13 +407,22 @@ body {
 }
 
 .cta-button--primary .cta-button__icon-box {
-  background: rgba(34, 10, 2, 0.26);
-  border-color: rgba(255, 245, 228, 0.30);
+  background: rgba(28, 9, 3, 0.76);
+  border-color: rgba(255, 236, 208, 0.34);
+  box-shadow: inset 0 1px 0 rgba(255, 245, 230, 0.14);
 }
 
-.cta-button--primary .cta-button__icon {
-  color: #FFF6E5;
-  filter: drop-shadow(0 1px 3px rgba(45, 12, 0, 0.35));
+.cta-button__emblem-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-button__emblem {
+  width: 29px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45));
 }
 
 .cta-button--primary::after {
@@ -444,8 +453,9 @@ body {
 }
 
 .cta-button--primary:hover .cta-button__icon-box {
-  transform: scale(1.06) translateX(1px);
-  background: rgba(34, 10, 2, 0.36);
+  transform: scale(1.07) translateX(1px);
+  background: rgba(24, 7, 2, 0.86);
+  border-color: rgba(255, 238, 210, 0.52);
 }
 
 /* --- Botões 2 a 5: Superfície em Vidro Fumê Quente (mantendo o estilo original) --- */
