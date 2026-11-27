@@ -35,10 +35,6 @@
       return baseUrl;
     }
 
-    // Não anexa UTMs de navegador em deep-links wa.me se não desejado, ou anexa de forma segura:
-    // Nota: Cardápios digitais, sites e iFood aceitam query params normalmente;
-    // no wa.me/55..., parâmetros extras além de ?text= são ignorados com segurança pelo WhatsApp,
-    // mas preservamos UTMs para ferramentas de analytics e páginas intermediárias.
     const incomingParams = new URLSearchParams(window.location.search);
     let hasIncomingTracking = false;
 
@@ -52,7 +48,6 @@
       }
     });
 
-    // Se o acesso veio limpo (ex: digitado ou sem query string), aplica defaults opcionais nos canais de pedido
     if (!hasIncomingTracking && opts.applyDefaults && trackingConfig.defaultParams) {
       Object.entries(trackingConfig.defaultParams).forEach(function ([key, val]) {
         if (val && !targetUrl.searchParams.has(key)) {
@@ -70,9 +65,8 @@
       pecaAqui: { url: config.pecaAquiUrl, forwardTracking: true, applyDefaults: true },
       ifood: { url: config.ifoodUrl, forwardTracking: true, applyDefaults: true },
       noveNoveFood: { url: config.noveNoveFoodUrl, forwardTracking: false, applyDefaults: false },
-      whatsappPedidos: { url: config.whatsappPedidosUrl, forwardTracking: false, applyDefaults: false },
       whatsappSuporte: { url: config.whatsappSuporteUrl, forwardTracking: false, applyDefaults: false },
-      instagram: { url: config.instagramUrl, forwardTracking: false, applyDefaults: false },
+      avaliacao: { url: config.avaliacaoUrl, forwardTracking: false, applyDefaults: false },
       maps: { url: config.mapsUrl, forwardTracking: false, applyDefaults: false }
     };
 
@@ -90,10 +84,11 @@
     // 2. Hidrata textos opcionais de marca caso alterados no config.js
     if (config.brand) {
       const textMap = {
-        "[data-brand-status]": config.brand.statusBadge,
         "[data-brand-headline]": config.brand.headline,
-        "[data-brand-subtitle]": config.brand.subtitle,
-        "[data-brand-handle]": config.brand.instagramHandle,
+        "[data-brand-hours-title]": config.brand.hoursTitle,
+        "[data-brand-hours-value]": config.brand.hoursValue,
+        "[data-brand-directions-title]": config.brand.directionsTitle,
+        "[data-brand-directions-subtext]": config.brand.directionsSubtext,
         "[data-brand-location]": config.brand.locationFooter
       };
 

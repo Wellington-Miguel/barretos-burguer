@@ -124,7 +124,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 96px 16px 132px;
+  padding: 96px 16px 128px;
 }
 
 .card-stage {
@@ -136,8 +136,7 @@ body {
   align-items: center;
 }
 
-/* Esferas Luminosas Suavizadas (Ambient Orbs) atrás do vidro fosco:
-   Opacidade reduzida e blur suave para criar refração quente sem ofuscar a arte de cordel */
+/* Esferas Luminosas Suavizadas (Ambient Orbs) atrás do vidro fosco */
 .ambient-orb {
   position: absolute;
   border-radius: 50%;
@@ -146,7 +145,6 @@ body {
   will-change: transform;
 }
 
-/* Orb Principal: Brilho Terracota/Âmbar difuso atrás da metade inferior do card */
 .ambient-orb--solar {
   width: 210px;
   height: 210px;
@@ -164,7 +162,6 @@ body {
   animation: orbFloatPrimary 10s ease-in-out infinite alternate;
 }
 
-/* Orb Secundário: Brilho suave no topo-esquerdo atrás do vidro */
 .ambient-orb--ember {
   width: 146px;
   height: 146px;
@@ -181,7 +178,6 @@ body {
   animation: orbFloatSecondary 12s ease-in-out infinite alternate;
 }
 
-/* Brilho difuso central atrás dos botões de conversão */
 .ambient-orb--core-glow {
   width: 240px;
   height: 190px;
@@ -231,7 +227,7 @@ body {
   z-index: 2;
   width: 100%;
   border-radius: var(--card-radius);
-  padding: 22px 18px 20px;
+  padding: 24px 18px 20px;
   background: var(--glass-card-bg);
   -webkit-backdrop-filter: var(--glass-card-blur);
   backdrop-filter: var(--glass-card-blur);
@@ -262,7 +258,6 @@ body {
   pointer-events: none;
 }
 
-/* Reflexo suave de luz ambiente no topo do card */
 .glass-card::after {
   content: "";
   position: absolute;
@@ -280,7 +275,7 @@ body {
 }
 
 /* ==========================================================================
-   HEADER DA MARCA (Badge + Logo Oficial + Chamada)
+   HEADER DA MARCA (Logo Oficial + Chamada Direta)
    ========================================================================== */
 
 .brand-header {
@@ -293,76 +288,15 @@ body {
   z-index: 1;
 }
 
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 6px 13px;
-  border-radius: 999px;
-  background: rgba(20, 7, 2, 0.46);
-  border: 1px solid rgba(255, 232, 204, 0.18);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.015em;
-  color: var(--text-sand);
-  text-decoration: none;
-  margin-bottom: 12px;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-  transition:
-    background-color 0.22s ease,
-    border-color 0.22s ease,
-    transform 0.22s var(--ease-out-expo),
-    box-shadow 0.22s ease;
-}
-
-.status-badge:hover {
-  background: rgba(229, 124, 6, 0.16);
-  border-color: rgba(255, 185, 95, 0.45);
-  color: var(--text-cream);
-  transform: translateY(-1px);
-  box-shadow:
-    0 6px 16px -4px rgba(229, 124, 6, 0.25),
-    inset 0 1px 0 rgba(255, 245, 232, 0.22);
-}
-
-.status-badge:active {
-  transform: scale(0.98);
-}
-
-.status-badge:focus-visible {
-  outline: 2px solid var(--amber-glow);
-  outline-offset: 2px;
-}
-
-.status-badge__dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #34D399;
-  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.22);
-  animation: pulseDot 2.2s ease-in-out infinite;
-  flex-shrink: 0;
-}
-
-.status-badge__pin {
-  width: 13px;
-  height: 13px;
-  color: var(--amber-glow);
-  flex-shrink: 0;
-  display: block;
-}
-
 .brand-logo-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 11px;
 }
 
 .brand-logo {
-  width: 178px;
+  width: 184px;
   max-width: 60vw;
   height: auto;
   display: block;
@@ -386,16 +320,8 @@ body {
   margin-bottom: 0;
 }
 
-.brand-subtitle {
-  font-size: 0.82rem;
-  font-weight: 400;
-  line-height: 1.38;
-  color: var(--text-sand);
-  opacity: 0.9;
-}
-
 /* ==========================================================================
-   BLOCO DE CTAs PRINCIPAIS (Texto à Esquerda + Ícone Vetorial à Direita)
+   BLOCO DE CTAs PRINCIPAIS (Título Limpo + Ícone Colorido da Marca)
    ========================================================================== */
 
 .cta-list {
@@ -414,8 +340,8 @@ body {
   justify-content: space-between;
   gap: 12px;
   width: 100%;
-  min-height: 56px;
-  padding: 9px 15px 9px 17px;
+  min-height: 54px;
+  padding: 8px 13px 8px 17px;
   border-radius: var(--btn-radius);
   text-decoration: none;
   color: var(--text-cream);
@@ -430,88 +356,66 @@ body {
     background 0.24s ease;
 }
 
-.cta-button__content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  min-width: 0;
-  flex: 1;
-}
-
 .cta-button__label {
-  font-size: 1.02rem;
+  font-size: clamp(0.90rem, 3.85vw, 0.99rem);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.25;
   letter-spacing: 0.005em;
   color: var(--text-cream);
-}
-
-.cta-button__sublabel {
-  font-size: 0.72rem;
-  font-weight: 400;
-  line-height: 1.25;
-  margin-top: 2px;
-  color: rgba(250, 246, 240, 0.72);
+  text-align: left;
+  flex: 1;
+  min-width: 0;
 }
 
 .cta-button__icon-box {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  background: rgba(255, 246, 234, 0.08);
+  background: rgba(255, 246, 234, 0.07);
   border: 1px solid rgba(255, 242, 224, 0.14);
   transition:
     transform 0.26s var(--ease-spring),
     background-color 0.24s ease,
     border-color 0.24s ease,
-    color 0.24s ease;
+    box-shadow 0.24s ease;
 }
 
 .cta-button__icon {
-  width: 23px;
-  height: 23px;
+  width: 22px;
+  height: 22px;
   display: block;
-  color: var(--text-cream);
 }
 
-/* Ícone Ifood e 99 Food levemente mais largos p/ leitura perfeita das marcas */
-.cta-button--ifood .cta-button__icon,
-.cta-button--99food .cta-button__icon {
-  width: 27px;
-  height: 27px;
-}
-
-/* --- Variação 1: Botão Protagonista (Peça Aqui!) --- */
+/* --- Botão 1: Protagonista (Pedir com Descontos/Vantagens) --- */
 .cta-button--primary {
-  min-height: 60px;
+  min-height: 58px;
   background: var(--btn-primary-bg);
   border-color: rgba(255, 224, 180, 0.42);
   box-shadow: var(--btn-primary-shadow);
 }
 
 .cta-button--primary .cta-button__label {
-  font-size: 1.08rem;
+  font-size: clamp(0.83rem, 3.62vw, 0.98rem);
   font-weight: 700;
+  letter-spacing: -0.005em;
   color: #FFFDF9;
   text-shadow: 0 1px 2px rgba(72, 22, 0, 0.35);
 }
 
-.cta-button--primary .cta-button__sublabel {
-  color: rgba(255, 248, 236, 0.90);
-  font-weight: 500;
-}
-
 .cta-button--primary .cta-button__icon-box {
-  background: rgba(34, 10, 2, 0.24);
-  border-color: rgba(255, 245, 228, 0.28);
+  background: rgba(34, 10, 2, 0.26);
+  border-color: rgba(255, 245, 228, 0.30);
 }
 
-/* Reflexo Diagonal Suave (Shimmer) no Botão Principal */
+.cta-button--primary .cta-button__icon {
+  color: #FFF6E5;
+  filter: drop-shadow(0 1px 3px rgba(45, 12, 0, 0.35));
+}
+
 .cta-button--primary::after {
   content: "";
   position: absolute;
@@ -541,10 +445,10 @@ body {
 
 .cta-button--primary:hover .cta-button__icon-box {
   transform: scale(1.06) translateX(1px);
-  background: rgba(34, 10, 2, 0.34);
+  background: rgba(34, 10, 2, 0.36);
 }
 
-/* --- Variação 2 & 3: Botões Secundários em Vidro Fumê Quente --- */
+/* --- Botões 2 a 5: Superfície em Vidro Fumê Quente (mantendo o estilo original) --- */
 .cta-button--secondary {
   background: var(--btn-secondary-bg);
   -webkit-backdrop-filter: blur(14px);
@@ -564,10 +468,79 @@ body {
 }
 
 .cta-button--secondary:hover .cta-button__icon-box {
-  transform: scale(1.06);
-  background: rgba(229, 124, 6, 0.22);
-  border-color: rgba(255, 196, 118, 0.42);
-  color: #FFEAD0;
+  transform: scale(1.07);
+}
+
+/* === Cores Oficiais das Marcas nos Ícones === */
+
+/* Ifood — Vermelho Oficial (#EA1D2C calibrado p/ alto contraste no vidro escuro) */
+.cta-button--ifood .cta-button__icon-box {
+  background: rgba(234, 29, 44, 0.12);
+  border-color: rgba(234, 29, 44, 0.28);
+}
+
+.cta-button--ifood .cta-button__icon {
+  width: 28px;
+  height: 28px;
+  color: #FF2B3A;
+  filter: drop-shadow(0 0 8px rgba(234, 29, 44, 0.32));
+}
+
+.cta-button--ifood:hover .cta-button__icon-box {
+  background: rgba(234, 29, 44, 0.20);
+  border-color: rgba(255, 64, 78, 0.48);
+}
+
+/* 99 Food — Amarelo Oficial (#FFD600) */
+.cta-button--99food .cta-button__icon-box {
+  background: rgba(255, 214, 0, 0.11);
+  border-color: rgba(255, 214, 0, 0.28);
+}
+
+.cta-button--99food .cta-button__icon {
+  width: 27px;
+  height: 27px;
+  color: #FFD600;
+  filter: drop-shadow(0 0 8px rgba(255, 214, 0, 0.28));
+}
+
+.cta-button--99food:hover .cta-button__icon-box {
+  background: rgba(255, 214, 0, 0.19);
+  border-color: rgba(255, 214, 0, 0.48);
+}
+
+/* WhatsApp — Verde Oficial (#25D366) */
+.cta-button--whatsapp .cta-button__icon-box {
+  background: rgba(37, 211, 102, 0.11);
+  border-color: rgba(37, 211, 102, 0.28);
+}
+
+.cta-button--whatsapp .cta-button__icon {
+  color: #25D366;
+  filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.28));
+}
+
+.cta-button--whatsapp:hover .cta-button__icon-box {
+  background: rgba(37, 211, 102, 0.19);
+  border-color: rgba(37, 211, 102, 0.48);
+}
+
+/* Google Avaliação — Estrela Dourada Oficial (#FBBC05) */
+.cta-button--review .cta-button__icon-box {
+  background: rgba(251, 188, 5, 0.12);
+  border-color: rgba(251, 188, 5, 0.28);
+}
+
+.cta-button--review .cta-button__icon {
+  width: 21px;
+  height: 21px;
+  color: #FBBC05;
+  filter: drop-shadow(0 0 8px rgba(251, 188, 5, 0.30));
+}
+
+.cta-button--review:hover .cta-button__icon-box {
+  background: rgba(251, 188, 5, 0.20);
+  border-color: rgba(251, 188, 5, 0.48);
 }
 
 /* Feedback tátil imediato no toque Mobile */
@@ -582,107 +555,196 @@ body {
 }
 
 /* ==========================================================================
-   VITRINE COMPACTA "DIRETO DA CHAPA" (Fotos Reais @barretosburguerssa)
+   PAINEL INFERIOR: HORÁRIOS DE FUNCIONAMENTO & COMO CHEGAR (Google Maps)
    ========================================================================== */
 
-.chapa-showcase {
+.house-info {
   margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(255, 236, 214, 0.11);
   position: relative;
   z-index: 1;
 }
 
-.chapa-showcase__header {
+.house-info__divider {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 9px;
+  gap: 10px;
+  margin-bottom: 12px;
 }
 
-.chapa-showcase__title {
-  display: inline-flex;
+.house-info__line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 226, 192, 0.20) 50%,
+    transparent 100%
+  );
+}
+
+.house-info__star {
+  width: 13px;
+  height: 13px;
+  color: var(--amber-glow);
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+.house-info__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-tile {
+  display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 0.69rem;
-  font-weight: 600;
-  letter-spacing: 0.09em;
+  gap: 12px;
+  padding: 11px 13px;
+  border-radius: 15px;
+  background: rgba(18, 6, 2, 0.42);
+  border: 1px solid rgba(255, 234, 208, 0.13);
+  box-shadow: inset 0 1px 0 rgba(255, 245, 230, 0.07);
+}
+
+.info-tile__icon-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-tile__icon-wrap--hours {
+  background: rgba(255, 159, 28, 0.12);
+  border: 1px solid rgba(255, 159, 28, 0.25);
+  color: var(--amber-glow);
+}
+
+.info-tile__icon-wrap--maps {
+  background: rgba(234, 67, 53, 0.14);
+  border: 1px solid rgba(255, 112, 88, 0.30);
+  color: #FF5A47;
+}
+
+.info-tile__icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.info-tile__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  min-width: 0;
+  flex: 1;
+}
+
+.info-tile__eyebrow {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-sand);
-  opacity: 0.86;
+  opacity: 0.78;
+  line-height: 1.2;
 }
 
-.chapa-showcase__spark {
-  width: 13px;
-  height: 13px;
-  color: var(--amber-glow);
+.info-tile__value {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-cream);
+  line-height: 1.3;
+  margin-top: 2px;
 }
 
-.chapa-showcase__ig-link {
+/* Variação Interativa Clicável: Como Chegar (Maps) */
+.info-tile--maps {
+  text-decoration: none;
+  color: var(--text-cream);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 240, 222, 0.08) 0%,
+    rgba(229, 124, 6, 0.08) 100%
+  );
+  border-color: rgba(255, 206, 150, 0.22);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 0.22s var(--ease-out-expo),
+    background 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.info-tile__title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-cream);
+  line-height: 1.2;
+}
+
+.info-tile__sub {
+  font-size: 0.71rem;
+  font-weight: 400;
+  color: var(--text-sand);
+  opacity: 0.82;
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+.info-tile__action {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: var(--amber-glow);
-  text-decoration: none;
-  transition: color 0.2s ease, opacity 0.2s ease;
+  gap: 3px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(229, 124, 6, 0.20);
+  border: 1px solid rgba(255, 183, 94, 0.34);
+  font-size: 0.70rem;
+  font-weight: 600;
+  color: #FFD79A;
+  flex-shrink: 0;
+  transition:
+    background-color 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s var(--ease-out-expo);
 }
 
-.chapa-showcase__ig-link:hover {
-  color: var(--amber-gold);
+.info-tile__arrow {
+  width: 12px;
+  height: 12px;
 }
 
-.chapa-showcase__ig-icon {
-  width: 13px;
-  height: 13px;
+.info-tile--maps:hover {
+  transform: translateY(-1.5px);
+  border-color: rgba(255, 185, 95, 0.46);
+  background: linear-gradient(
+    135deg,
+    rgba(229, 124, 6, 0.18) 0%,
+    rgba(206, 104, 40, 0.12) 100%
+  );
+  box-shadow: 0 10px 22px -8px rgba(229, 124, 6, 0.28);
 }
 
-.chapa-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+.info-tile--maps:hover .info-tile__action {
+  background: rgba(229, 124, 6, 0.34);
+  border-color: rgba(255, 206, 140, 0.55);
+  color: #FFF4E2;
+  transform: translateX(1px);
 }
 
-.chapa-thumb {
-  position: relative;
-  aspect-ratio: 1 / 1;
-  border-radius: var(--thumb-radius);
-  overflow: hidden;
-  display: block;
-  border: 1px solid rgba(255, 236, 214, 0.18);
-  background: rgba(20, 7, 2, 0.6);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-  text-decoration: none;
+.info-tile--maps:active {
+  transform: scale(0.985);
 }
 
-.chapa-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.42s var(--ease-out-expo), filter 0.3s ease;
-}
-
-.chapa-thumb__tag {
-  position: absolute;
-  inset: auto 0 0 0;
-  padding: 14px 6px 5px;
-  background: linear-gradient(180deg, transparent 0%, rgba(14, 4, 1, 0.84) 100%);
-  font-size: 0.62rem;
-  font-weight: 500;
-  color: rgba(250, 246, 240, 0.92);
-  text-align: center;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.chapa-thumb:hover img {
-  transform: scale(1.08);
-  filter: saturate(1.1) contrast(1.04);
+.info-tile--maps:focus-visible {
+  outline: 2px solid var(--amber-glow);
+  outline-offset: 2px;
 }
 
 /* ==========================================================================
@@ -703,15 +765,9 @@ body {
   letter-spacing: 0.02em;
 }
 
-.page-footer__link {
+.page-footer__brand {
   color: rgba(250, 240, 226, 0.72);
-  text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.page-footer__link:hover {
-  color: var(--amber-glow);
 }
 
 /* ==========================================================================
@@ -785,24 +841,18 @@ body {
   }
 }
 
-/* Ajuste fino para telas com barra de endereço alta / WebView compacto (mantendo SEMPRE
-   as faixas superior e inferior livres para exibir os desenhos de cordel sem sobreposição!) */
+/* Ajuste fino para telas com barra de endereço alta / WebView compacto */
 @media (max-height: 740px) and (max-width: 480px) {
   .page-shell {
-    padding: 92px 14px 128px;
+    padding: 92px 14px 124px;
   }
 
   .glass-card {
-    padding: 16px 15px 15px;
-  }
-
-  .status-badge {
-    margin-bottom: 8px;
-    padding: 4px 10px;
+    padding: 18px 15px 16px;
   }
 
   .brand-logo {
-    width: 164px;
+    width: 166px;
   }
 
   .brand-header {
@@ -810,20 +860,19 @@ body {
   }
 
   .cta-list {
-    gap: 9px;
+    gap: 8px;
   }
 
   .cta-button {
-    min-height: 54px;
+    min-height: 50px;
   }
 
   .cta-button--primary {
-    min-height: 58px;
+    min-height: 54px;
   }
 
-  .chapa-showcase {
-    margin-top: 12px;
-    padding-top: 10px;
+  .house-info {
+    margin-top: 13px;
   }
 }
 
@@ -866,17 +915,6 @@ body {
   }
   100% {
     left: 160%;
-  }
-}
-
-@keyframes pulseDot {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.65;
-    transform: scale(0.88);
   }
 }
 
