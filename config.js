@@ -31,7 +31,7 @@ window.LINKS_CONFIG = {
   // Textos rápidos de chamada, horários e rodapé (editáveis sem mexer no HTML)
   brand: {
     headline: "BATEU A FOME AÍ?",
-    hoursTitle: "Horários e funcionamento",
+    hoursTitle: "Horários de funcionamento",
     hoursValue: "Terça a domingo - 18h às 23h",
     directionsTitle: "Como chegar",
     directionsSubtext: "Ver rota no Google Maps",
